@@ -1,18 +1,20 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import Login from './components/Login';
-import PrivateRoute from './components/PrivateRoute';
+import Home from './components/Home';
+import Login from './authentication/Login';
+import SignUp from './authentication/SignUp';
+import PrivateRoute from './authentication/PrivateRoute';
 
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Link to ='/api/login'>Log In Here</Link>
-        <Route path ='/' component={Login} />
-        <PrivateRoute exact path ='/api/home' component={HomePage} />
+        <Route exact path ='/' component={SignUp} />
+        <PrivateRoute exact path ='/home' component={Home} />
+        {/* <Link to ='/login'>Log In Here If you already have an account!</Link> */}
+        <Route exact path ='/login' component={Login} />
       </div>
     </Router>
   );

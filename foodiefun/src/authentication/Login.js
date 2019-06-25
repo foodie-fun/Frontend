@@ -12,8 +12,7 @@ class Login extends Component {
 
 changeHandler = e => {
     this.setState({
-        credentials: {...this.state.credentials,
-                        [e.target.name]: e.target.value}
+    credentials: {...this.state.credentials, [e.target.name]: e.target.value}
     })
 }
 
@@ -21,7 +20,7 @@ login = e => {
     e.preventDefault();
     this.props.login(this.state.credentials)
     .then(() => {
-        this.props.history.push('/api/friends')
+        this.props.history.push('/home')
     })
 }
 
@@ -54,7 +53,7 @@ login = e => {
 }
 
 const mapStateToProps = state => ({
-    isLoggingIn: state.isLoggingIn,
+    loggingIn: state.loggingIn,
 })
 
 export default connect(mapStateToProps, { login })(Login);

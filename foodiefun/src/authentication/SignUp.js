@@ -22,21 +22,14 @@ class SignUp extends Component {
 
     submitHandler = (e,userInfo) => {
         e.preventDefault();
-        this.props
-        .signUp(userInfo)
-        .then(res => {
-            this.props.history.push('/');
-        })
-        .catch(err => {
-            console.log(err);
-        })
-        // this.props.handleReset();
+        this.props.signUp(userInfo)
         this.setState({
             userInfo: {
                 username: '',
                 password: ''
             }
         })
+        this.props.history.push('/login')
     }
 
 

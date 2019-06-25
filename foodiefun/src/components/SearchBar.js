@@ -1,3 +1,4 @@
+    
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getUser } from '../actions';
@@ -8,7 +9,7 @@ class SearchBar extends Component {
         
         return (
             <div>
-                <AddForm />
+                <AddForm addPost = {this.props.addPost} />
             </div>
         )
     }

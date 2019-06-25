@@ -1,9 +1,8 @@
 import axios from 'axios';
+import axiosWithAuth from "../axiosWithAuth";
 export const FETCHING = 'FETCHING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
-
-
 
 
 // Sign Up 
@@ -52,7 +51,8 @@ export const login = creds => dispatch =>{
         .post(`https://foodiefun-be.herokuapp.com/api/new/login`, creds)
         .then(res => {
             console.log(res)
-            localStorage.setItem('token', res.data.payload);
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('current', res.data.id);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload});
             getUser();
         })
@@ -74,3 +74,36 @@ export const getUser = () => dispatch => {
     });
 };
 
+export const ADD_POST_START='ADD_POST_START';
+export const ADD_POST_SUCCESS='ADD_POST_SUCCESS';
+export const ADD_POST_FAILURE='ADD_POST_FAILURE';
+export const addPost = post => dispatch => {
+    // console.log(post)
+    dispatch({type: ADD_POST_START });
+    axiosWithAuth()
+        .post(`https://foodiefun-be.herokuapp.com/api/auth/review`, post )
+        .then(res => {    
+            console.log(res);      
+            dispatch({type: ADD_POST_SUCCESS, payload: res.config.data})
+        })
+        .catch(err => {
+            dispatch({type: ADD_POST_FAILURE, payload: err})
+        })
+}
+
+export const S='S';
+export const SU='SU';
+export const F='F';
+export const getPost = post => dispatch => {
+    // console.log(post)
+    dispatch({type: ADD_POST_START });
+    axiosWithAuth()
+        .get(`https://foodiefun-be.herokuapp.com/api/auth/review` )
+        .then(res => {   
+            console.log(res)       
+            dispatch({type: SU, payload: res.data})
+        })
+        .catch(err => {
+            dispatch({type: ADD_POST_FAILURE, payload: err})
+        })
+}

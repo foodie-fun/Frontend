@@ -1,14 +1,24 @@
+import { connect } from 'react-redux';  
+import {addPost} from '../actions'  
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import Cards from './Cards'
+import Catalog from './Catalog';
 
-export default class Home extends Component {
+class Home extends Component {
     render() {
+        console.log(this.props.reviews)
         return (
             <div>
-                <SearchBar />
-                {/* <Cards /> */}
+                <SearchBar addPost={this.props.addPost} />
+                <Catalog reviews={this.props.reviews} />
             </div>
         )
     }
 }
+
+
+const mapStateToProps = state => ({
+    reviews: state.addPostReducer.reviews
+})
+export default connect(mapStateToProps, {addPost})(Home)

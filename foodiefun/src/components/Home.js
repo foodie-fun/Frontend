@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import {addPost} from '../actions'  
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
-import Cards from './Cards'
 import Catalog from './Catalog';
 
 class Home extends Component {

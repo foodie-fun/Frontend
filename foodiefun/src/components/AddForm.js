@@ -28,6 +28,7 @@ class AddForm extends Component {
         const item = {user_id: localStorage.getItem('current'), ...this.state.newCard}
         this.props.addPost(item);
         // this.setState({ newCard: )
+        this.props.getPost();
     }
     render() {
         return (

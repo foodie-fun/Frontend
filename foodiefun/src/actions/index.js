@@ -180,9 +180,8 @@ export const deletePost = id => dispatch => {
             console.log(res)
             dispatch({
                 type: DELETE_SUCCESS,
-                payload: res.data
-            })
-        })
+            })            
+        })      
         .catch(err => {
             dispatch({
                 type: DELETE_FAIL,

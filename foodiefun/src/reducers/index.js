@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             error: false,
-            reviews: action.payload
+            reviews: [...state.reviews, action.payload]
         }; 
         case ADD_POST_FAILURE:
         return {
@@ -101,7 +101,7 @@ const reducer = (state = initialState, action) => {
         case PUT_ON_STATE:
             return {
                 ...state,
-                editedObject: [action.payload]
+                editedObject: [...state.reviews, action.payload]
             } 
         default:
             return state

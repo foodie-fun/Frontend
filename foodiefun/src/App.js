@@ -1,12 +1,13 @@
 
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './authentication/Login';
 import SignUp from './authentication/SignUp';
 import PrivateRoute from './authentication/PrivateRoute';
 import EditForm from './components/EditForm';
+import AddForm from './components/AddForm';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         {/* <Link to ='/login'>Log In Here If you already have an account!</Link> */}
         <Route exact path ='/login' component={Login} />
         <Route exact path ='/edit' component={EditForm}/>
+        <Route exact path ='/add' component={AddForm} />
         </div>
       </Router>
   );

@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'; 
-import {deletePost, putOnState} from '../actions/';
-import {Link} from 'react-router-dom';
+import {deletePost, updatePost} from '../actions/';
 
 class Cards extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+
+        }
     }
 
-    putOnState = e => {
+    update = e => {
         e.preventDefault();
-        this.props.putOnState(this.props.review);
-    }
+        this.props.updatePost(this.props.review)
 
-    delete = e => {
-        this.props.deletePost(this.props.review.id)
     }
 
     render() {
@@ -26,7 +25,7 @@ class Cards extends Component {
             <p>{this.props.review.price}</p>
             <p>{this.props.review.rating}</p>
 
-            <button onClick={this.putOnState}><Link to='/edit'>UPDATE</Link></button>
+            <button onClick={this.update}>UPDATE</button>
             <button onClick={this.delete} >DELETE</button>
         </div>
         )
@@ -34,5 +33,4 @@ class Cards extends Component {
 }
 
 
-export default connect(null, {deletePost, putOnState})(Cards);
-
+export default connect(null, {deletePost, updatePost})(Cards);

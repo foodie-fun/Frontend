@@ -19,6 +19,6 @@ class Home extends Component {
 
 
 const mapStateToProps = state => ({
-    reviews: state.addPostReducer.reviews
+    reviews: state.reviews
 })
 export default connect(mapStateToProps, {addPost})(Home)

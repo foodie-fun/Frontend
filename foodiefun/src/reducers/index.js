@@ -101,7 +101,7 @@ const reducer = (state = initialState, action) => {
         case PUT_ON_STATE:
             return {
                 ...state,
-                editedObject: [...state.reviews, action.payload]
+                editedObject: action.payload
             } 
         default:
             return state
@@ -109,3 +109,7 @@ const reducer = (state = initialState, action) => {
 }
 
 export default reducer;
+
+
+// action creator takes Object, makes put request at URL, takes id off that Object
+// update put takes the id from that object and 

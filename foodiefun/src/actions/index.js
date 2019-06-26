@@ -31,7 +31,6 @@ export const signUp = creds => dispatch => {
             })
         })
 }
-
 export const setUser = () => dispatch => {
     dispatch({
         type: FETCHING
@@ -162,14 +161,11 @@ export const getPost = post => dispatch => {
 //     "SIGNUP_FAIL"
 //   ];
 
+
 // delete
-
-export const [DELETE_START, DELETE_SUCCESS, DELETE_FAIL] = [
-    "DELETE_START",
-    "DELETE_SUCCESS",
-    "DELETE_FAIL"
-];
-
+export const DELETE_START = 'DELETE_START';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const DELETE_FAIL = 'DELETE_FAIL';
 export const deletePost = id => dispatch => {
     dispatch({
         type: DELETE_START
@@ -190,14 +186,11 @@ export const deletePost = id => dispatch => {
         })
 }
 
+
 //update
-
-export const [UPDATE_START, UPDATE_SUCCESS, UPDATE_FAIL] = [
-    "UPDATE_START",
-    "UPDATE_SUCCESS",
-    "UPDATE_FAIL"
-];
-
+export const UPDATE_START = 'UPDATE_START';
+export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
+export const UPDATE_FAIL = 'UPDATE_FAIL';
 export const updatePost = item => dispatch => {
     console.log(item)
     dispatch({
@@ -221,7 +214,6 @@ export const updatePost = item => dispatch => {
 }
 
 export const PUT_ON_STATE = "PUT_ON_STATE";
-
 export const putOnState = (updateObj) => {
     return {
         type: PUT_ON_STATE,

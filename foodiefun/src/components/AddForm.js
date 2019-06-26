@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {getPost } from '../actions'
+import {getPost, addPost } from '../actions'
 import {connect } from 'react-redux'
 
 class AddForm extends Component {
@@ -25,9 +25,8 @@ class AddForm extends Component {
     addToCard = e => {
         e.preventDefault();
         console.log(this.state.newCard)
-        const item = {user_id: localStorage.getItem('current'), ...this.state.newCard}
-        this.props.addPost(item);
-        // this.setState({ newCard: )
+        const post = {user_id: localStorage.getItem('current'), ...this.state.newCard}
+        this.props.addPost(post);
         this.props.getPost();
     }
     render() {
@@ -97,4 +96,4 @@ class AddForm extends Component {
 }
 
 
-export default connect(null, {getPost})(AddForm)
+export default connect(null, {getPost, addPost})(AddForm)

@@ -22,31 +22,18 @@ class EditForm extends Component {
         this.setState({newCard:{...this.state.newCard, [e.target.name]: e.target.value}});
     };
 
-    updateCard = e => {
-        console.log(this.props.editedObject)
-        e.preventDefault();
-        this.setState = ({
-            newCard: {...this.state.newCard, id: this.props.editedObject.id }
-        })
-
-        // console.log(this.props.editedObject);
-        // const edited = this.props.editedObject;
-        // console.log(edited);
-
-        // const item = {
-        //     user_id: this.props.editedObject.user_id,
-        //     id: this.props.editedObject.id,
-        //     resname: this.state.newCard.resname,
-        //     restype: this.state.newCard.restype,
-        //     foodname: this.state.newCard.foodname,
-        //     imgURL: this.state.newCard.imgURL,
-        //     price: this.state.newCard.price,
-        //     rating: this.state.newCard.rating,
-        //     comment: this.state.newCard.comment
-        // }
-        
-        this.props.updatePost({user_id: localStorage.getItem('current'), id: this.state.newCard.id, ...this.state.newCard });
+    updateCard = e => {        
+        e.preventDefault();          
+        this.props.updatePost(this.state.newCard);
     }
+
+    componentDidMount() {
+        this.setState ({
+            newCard: this.props.editedObject
+        })
+        console.log(this.props.editedObject)
+    }
+
 
     render() {
         return (

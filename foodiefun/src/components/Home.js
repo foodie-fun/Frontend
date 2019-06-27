@@ -36,20 +36,20 @@ class Home extends Component {
         console.log(this.props.reviews)
 
         return (
-            <div>
+            <div className='SearchContainer'>
                 {/* <SearchBar addPost={this.props.addPost} /> */}
 
                 <Navbar style={{backgroundColor: '#e1f0e1'}} light expand="md">
-                    <NavbarBrand href="/">FoodieFun!</NavbarBrand>
+                    <NavbarBrand href="/" >FoodieFun!</NavbarBrand>
+                                <Form onSubmit={this.searchSubmit}>
+                                    <Input className="search-inline" name='searched' value={this.state.searched} type='text' onChange={this.changeHandler} placeholder='Search For Review'/>
+                                </Form>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Form onSubmit={this.searchSubmit}>
-                                    <Input name='searched' value={this.state.searched} type='text' onChange={this.changeHandler} placeholder='Search For Review'/>
-                                </Form>
                                 <NavLink className='text-muted'><Link to='/add'>Add Review</Link></NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                                <NavLink href="/">Register a new user</NavLink>
                             </NavItem>                                                       
                         </Nav>                    
                 </Navbar>

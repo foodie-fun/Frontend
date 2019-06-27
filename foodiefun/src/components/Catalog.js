@@ -12,14 +12,14 @@ function Catalog(props){
             {/* {props.reviews.map((review, index) => <Cards key={index} review={review} /> )}   */}
             {props.searchInput.length > 0 ? props.searchedReviews.map((review,index) => {
                 return (
-                    <Container fluid>
-                        <Cards key={index} review={review} />
-                    </Container>
-                )}) : props.reviews.map((review, index) => {
-                    return (
                         <Container fluid>
                             <Cards key={index} review={review} />
                         </Container>
+                )}) : props.reviews.map((review, index) => {
+                    return (
+                            <Container fluid>
+                                <Cards key={index} review={review} />
+                            </Container>
                     )
                 })
             }

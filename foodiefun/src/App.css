@@ -138,3 +138,21 @@ input.error {
 .UpdateBtn {
   color: white;
 }
+
+
+/* Search Bar */
+.SearchContainer{
+  max-width: 100%;
+}
+.search-inline {
+  margin: 0 25%;
+}
+
+/* Card Reviews */
+.Card-Container {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

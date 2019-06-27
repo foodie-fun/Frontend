@@ -22,9 +22,9 @@ class Cards extends Component {
 
     render() {
         return (
-        <div>
+        <div className='Card-Container'>
             <Col sm='3'>
-                <CardDeck className='Container'>
+                <CardDeck>
                     <Card>
                         <CardBody>
                                 <div className="clearfix" style={{ backgroundColor: '#e1f0e1', padding: '.5rem' }}>
@@ -45,7 +45,7 @@ class Cards extends Component {
                         </CardBody>
                     </Card>
                 </CardDeck>
-            </Col>
+            </Col>            
         </div>
         )
     }

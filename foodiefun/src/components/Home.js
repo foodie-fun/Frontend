@@ -3,15 +3,9 @@ import {addPost, getPost, searchBar} from '../actions'
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Catalog from './Catalog';
-import {
-    Collapse,
-    Navbar,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,} from 'reactstrap';
+import { Input,Form, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
-    import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
 class Home extends Component {
     state = {
         searched: ''

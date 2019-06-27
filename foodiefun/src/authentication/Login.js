@@ -64,25 +64,6 @@ login = e => {
                     </Form>
                 </div>
             </div>
-            // <>
-            //     <form onSubmit={this.login} >
-            //         <input 
-            //             type='text' 
-            //             name='username'                       
-            //             value={this.state.credentials.username}
-            //             placeholder='username'
-            //             onChange={this.changeHandler}
-            //         />
-            //         <input 
-            //             type='password' 
-            //             name='password'
-            //             value={this.state.credentials.password}
-            //             placeholder='password'
-            //             onChange={this.changeHandler}
-            //         />
-            //         <button>Log In</button>
-            //     </form>
-            // </>
         )
     }
 }

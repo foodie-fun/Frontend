@@ -110,7 +110,6 @@ export const ADD_POST_START = 'ADD_POST_START';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
 export const ADD_POST_FAILURE = 'ADD_POST_FAILURE';
 export const addPost = post => dispatch => {
-    // console.log(post)
     dispatch({
         type: ADD_POST_START
     });
@@ -135,7 +134,6 @@ export const GET_START = 'GET_START';
 export const GET_SUCCESS = 'GET_SUCCESS';
 export const GET_FAILURE = 'GET_FAILURE';
 export const getPost = id => dispatch => {
-    // console.log(post)
     dispatch({
         type: GET_START
     });
@@ -155,13 +153,6 @@ export const getPost = id => dispatch => {
             })
         })
 }
-
-// export const [SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAIL] = [
-//     "SIGNUP_START",
-//     "SIGNUP_SUCCESS",
-//     "SIGNUP_FAIL"
-//   ];
-
 
 // delete
 export const DELETE_START = 'DELETE_START';
@@ -214,7 +205,7 @@ export const updatePost = item => dispatch => {
         })
 }
 
-//
+// Links the state between EditForm and Cards, allows for updating Card Review on a different component
 export const PUT_ON_STATE = "PUT_ON_STATE";
 export const putOnState = (updateObj) => {
     return {

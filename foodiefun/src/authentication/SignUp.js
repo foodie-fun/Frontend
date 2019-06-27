@@ -64,31 +64,11 @@ class SignUp extends Component {
                                 required
                             />
                         </FormGroup>
-                        {/* <Button>Register Account</Button> */}
                         <div className="createAccount">
                             <Button type="submit">Register Account</Button>
                         </div>
                     </Form>
-                </div>
-                {/* <div>
-                                <form onSubmit={e => this.submitHandler(e, this.state.userInfo)}>
-                                <input 
-                                        type='text' 
-                                        name='username'                       
-                                        value={this.state.userInfo.username}
-                                        placeholder='Set Up A Username'
-                                        onChange={this.changeHandler}
-                                    />
-                                    <input 
-                                        type='password' 
-                                        name='password'
-                                        value={this.state.userInfo.password}
-                                        placeholder='Set Up A Password'
-                                        onChange={this.changeHandler}
-                                    />
-                                    <button>Register Account</button>
-                                </form>
-                            </div> */}
+                </div>                
             </div>
         )
     }

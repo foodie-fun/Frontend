@@ -117,7 +117,12 @@ const reducer = (state = initialState, action) => {
         case SEARCH:
         return {
             ...state,
-            searchedReviews: state.reviews.filter(review => review.resname.toLowerCase().includes(action.payload.toLowerCase()) || review.restype.toLowerCase().includes(action.payload.toLowerCase()) || review.foodname.toLowerCase().includes(action.payload.toLowerCase()) || review.price.toString().includes(action.payload.toString()) || review.rating.toString().includes(action.payload.toString())) ,
+            // this is linked to the original reviews state and filters it so user gets results back as they type
+            searchedReviews: state.reviews.filter(review => review.resname.toLowerCase().includes(action.payload.toLowerCase())
+                || review.restype.toLowerCase().includes(action.payload.toLowerCase()) 
+                || review.foodname.toLowerCase().includes(action.payload.toLowerCase()) 
+                || review.price.toString().includes(action.payload.toString()) 
+                || review.rating.toString().includes(action.payload.toString())) ,
             searchInput: action.payload
         }   
         default:

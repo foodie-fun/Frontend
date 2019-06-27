@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {deletePost, putOnState, getPost} from '../actions/';
 import {Link} from 'react-router-dom';
 import { withRouter } from "react-router";
-import { Button , Card, CardDeck, CardImg, CardHeader, CardFooter, CardText, CardBody, CardLink, CardTitle, CardSubtitle, Col, Container, Row } from 'reactstrap';
+import { Button , Card, CardDeck, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Col } from 'reactstrap';
 
 
 class Cards extends Component {    
@@ -23,15 +23,6 @@ class Cards extends Component {
     render() {
         return (
         <div>
-            {/* <p>{this.props.review.resname}</p>
-            <p>{this.props.review.restype}</p>
-            <img src={this.props.review.imgURL} />
-            <p>{this.props.review.foodname}</p>
-            <p>{this.props.review.price}</p>
-            <p>{this.props.review.rating}</p>
-            <p>{this.props.review.comment}</p>
-            <button onClick={this.putOnState} ><Link to='/edit'>UPDATE</Link></button>
-            <button onClick={this.delete} >DELETE</button> */}
             <Col sm='3'>
                 <CardDeck className='Container'>
                     <Card>

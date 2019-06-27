@@ -129,3 +129,12 @@ input.error {
   color: #999;
   font-weight: lighter;
 }
+
+
+.Container{
+  padding: 10px;
+}
+
+.UpdateBtn {
+  color: white;
+}

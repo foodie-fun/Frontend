@@ -31,7 +31,6 @@ export const signUp = creds => dispatch => {
             })
         })
 }
-
 export const setUser = () => dispatch => {
     dispatch({
         type: FETCHING
@@ -115,7 +114,7 @@ export const addPost = post => dispatch => {
     dispatch({
         type: ADD_POST_START
     });
-    axiosWithAuth()
+    return axiosWithAuth()
         .post(`https://foodiefun-be.herokuapp.com/api/auth/review`, post)
         .then(res => {
             console.log(res);
@@ -132,15 +131,16 @@ export const addPost = post => dispatch => {
         })
 }
 
-
+export const GET_START = 'GET_START';
 export const GET_SUCCESS = 'GET_SUCCESS';
-export const getPost = post => dispatch => {
+export const GET_FAILURE = 'GET_FAILURE';
+export const getPost = id => dispatch => {
     // console.log(post)
     dispatch({
-        type: ADD_POST_START
+        type: GET_START
     });
     axiosWithAuth()
-        .get(`https://foodiefun-be.herokuapp.com/api/auth/review`)
+        .get(`https://foodiefun-be.herokuapp.com/api/auth/review/user/${id}`)
         .then(res => {
             console.log(res)
             dispatch({
@@ -150,7 +150,7 @@ export const getPost = post => dispatch => {
         })
         .catch(err => {
             dispatch({
-                type: ADD_POST_FAILURE,
+                type: GET_FAILURE,
                 payload: err
             })
         })
@@ -162,19 +162,16 @@ export const getPost = post => dispatch => {
 //     "SIGNUP_FAIL"
 //   ];
 
+
 // delete
-
-export const [DELETE_START, DELETE_SUCCESS, DELETE_FAIL] = [
-    "DELETE_START",
-    "DELETE_SUCCESS",
-    "DELETE_FAIL"
-];
-
+export const DELETE_START = 'DELETE_START';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const DELETE_FAIL = 'DELETE_FAIL';
 export const deletePost = id => dispatch => {
     dispatch({
         type: DELETE_START
     });
-    axiosWithAuth()
+    return axiosWithAuth()
         .delete(`https://foodiefun-be.herokuapp.com/api/auth/review/${id}`)
         .then(res => {
             console.log(res)
@@ -190,20 +187,17 @@ export const deletePost = id => dispatch => {
         })
 }
 
+
 //update
-
-export const [UPDATE_START, UPDATE_SUCCESS, UPDATE_FAIL] = [
-    "UPDATE_START",
-    "UPDATE_SUCCESS",
-    "UPDATE_FAIL"
-];
-
+export const UPDATE_START = 'UPDATE_START';
+export const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
+export const UPDATE_FAIL = 'UPDATE_FAIL';
 export const updatePost = item => dispatch => {
     console.log(item)
     dispatch({
         type: UPDATE_START
     });
-    axiosWithAuth()
+    return axiosWithAuth()
         .put(`https://foodiefun-be.herokuapp.com/api/auth/review/${item.id}`, item)
         .then(res => {
             console.log(res)
@@ -221,7 +215,6 @@ export const updatePost = item => dispatch => {
 }
 
 export const PUT_ON_STATE = "PUT_ON_STATE";
-
 export const putOnState = (updateObj) => {
     return {
         type: PUT_ON_STATE,

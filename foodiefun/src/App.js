@@ -8,7 +8,6 @@ import SignUp from './authentication/SignUp';
 import PrivateRoute from './authentication/PrivateRoute';
 import EditForm from './components/EditForm';
 import AddForm from './components/AddForm';
-import SearchReview from './components/SearchReview';
 
 
 function App() {

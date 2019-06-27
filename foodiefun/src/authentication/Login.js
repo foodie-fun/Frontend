@@ -32,7 +32,7 @@ login = e => {
         return (
             <div className='wrapper'>
                 <div className='form-wrapper'>
-                    <h3>Welcome To FoodieFun!</h3>
+                    <h3>Login To FoodieFun!</h3>
                     <Form onSubmit={this.login} inline>
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Label for="username" className="mr-sm-2">Username</Label>
@@ -64,25 +64,6 @@ login = e => {
                     </Form>
                 </div>
             </div>
-            // <>
-            //     <form onSubmit={this.login} >
-            //         <input 
-            //             type='text' 
-            //             name='username'                       
-            //             value={this.state.credentials.username}
-            //             placeholder='username'
-            //             onChange={this.changeHandler}
-            //         />
-            //         <input 
-            //             type='password' 
-            //             name='password'
-            //             value={this.state.credentials.password}
-            //             placeholder='password'
-            //             onChange={this.changeHandler}
-            //         />
-            //         <button>Log In</button>
-            //     </form>
-            // </>
         )
     }
 }

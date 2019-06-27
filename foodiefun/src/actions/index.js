@@ -214,6 +214,7 @@ export const updatePost = item => dispatch => {
         })
 }
 
+//
 export const PUT_ON_STATE = "PUT_ON_STATE";
 export const putOnState = (updateObj) => {
     return {
@@ -221,3 +222,10 @@ export const putOnState = (updateObj) => {
         payload: updateObj
     }
 }
+
+
+// SEARCH
+export const SEARCH = "SEARCH";
+export const searchBar = search => {
+    return { type: SEARCH, payload: search };
+};

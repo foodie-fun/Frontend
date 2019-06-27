@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';  
-import {addPost, getPost} from '../actions'  
+import {addPost, getPost, searchBar} from '../actions'  
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import SearchBar from './SearchBar';
 import Catalog from './Catalog';
 import {
     Collapse,
@@ -10,19 +9,35 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    NavLink,} from 'reactstrap';
 
-
+    import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 class Home extends Component {
+    state = {
+        searched: ''
+    }
 
     componentDidMount() {
         this.props.getPost(localStorage.getItem('current'));
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.searched !== this.state.searched) {
+            this.props.searchBar(this.state.searched)
+        }
+    }
+
+    changeHandler= e => {
+        this.setState({
+            ...this.state.searched,
+            [e.target.name]: e.target.value
+        })
+    }
     
+    searchSubmit = e => {
+        e.preventDefault()
+    }
+
     render() {
         console.log(this.props.reviews)
 
@@ -34,6 +49,9 @@ class Home extends Component {
                     <NavbarBrand href="/">FoodieFun!</NavbarBrand>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
+                                <Form onSubmit={this.searchSubmit}>
+                                    <Input name='searched' value={this.state.searched} type='text' onChange={this.changeHandler} placeholder='Search For Review'/>
+                                </Form>
                                 <NavLink className='text-muted'><Link to='/add'>Add Review</Link></NavLink>
                             </NavItem>
                             <NavItem>
@@ -51,7 +69,9 @@ class Home extends Component {
 
 
 const mapStateToProps = state => ({
-    reviews: state.reviews
+    reviews: state.reviews,
+    searchedReviews: state.searchedReviews,
+    searchInput: state.searchInput
 })
 
-export default connect(mapStateToProps, {getPost, addPost})(Home)
+export default connect(mapStateToProps, {getPost, addPost, searchBar})(Home)

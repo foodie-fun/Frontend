@@ -17,7 +17,7 @@ class Cards extends Component {
         e.persist();
         this.props.deletePost(this.props.review.id)
         this.props.getPost(localStorage.getItem('current'));
-        // this.props.history.push('/add');
+        this.props.history.push('/home');
     }
 
     render() {

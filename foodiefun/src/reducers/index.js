@@ -12,7 +12,7 @@
 // import { FETCHING, SUCCESS, FAILURE, LOGIN_SUCCESS,  LOGIN_START } from "../actions";
 import { ADD_POST_SUCCESS, ADD_POST_FAILURE, GET_SUCCESS} from "../actions";
 import { SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILURE, LOGIN_SUCCESS,  LOGIN_START } from "../actions";
-import {DELETE_SUCCESS, DELETE_FAIL, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAIL, PUT_ON_STATE, GET_FAILURE, GET_START} from '../actions'
+import {DELETE_SUCCESS, DELETE_FAIL, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAIL, PUT_ON_STATE, GET_FAILURE, GET_START, SEARCH} from '../actions'
 
 
 const initialState = {
@@ -22,7 +22,9 @@ const initialState = {
     signedUp: false,
     delete: false,
     updating: false,
-    editedObject: []
+    editedObject: [],
+    searchInput: '',
+    searchedReviews: [],  
 }
 
 const reducer = (state = initialState, action) => {
@@ -111,7 +113,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 editedObject: action.payload
-            } 
+            }
+        case SEARCH:
+        return {
+            ...state,
+            searchedReviews: state.reviews.filter(review => review.resname.toLowerCase().includes(action.payload.toLowerCase()) || review.restype.toLowerCase().includes(action.payload.toLowerCase()) || review.foodname.toLowerCase().includes(action.payload.toLowerCase()) || review.price.toString().includes(action.payload.toString()) || review.rating.toString().includes(action.payload.toString())) ,
+            searchInput: action.payload
+        }   
         default:
             return state
     }

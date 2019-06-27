@@ -18,14 +18,18 @@ class EditForm extends Component {
     };
 
 
-    handleChanges = e => {
+    handleChanges = e => {       
         this.setState({newCard:{...this.state.newCard, [e.target.name]: e.target.value}});
     };
 
-    updateCard = e => {      
-        e.preventDefault();   
+    updateCard = e => {  
+        e.persist();     
         this.props.updatePost(this.state.newCard);
-        this.props.history.push('/home');
+        this.SetTimeout()
+    }
+
+    SetTimeout = () => {
+        setTimeout(this.props.history.push('/home'), 5000)
     }
 
     componentDidMount() {

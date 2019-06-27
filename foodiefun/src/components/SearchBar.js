@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getUser } from '../actions';
-import AddForm from './AddForm'
+import AddForm from './AddForm';
 // import {
 //   Collapse,
 //   Navbar,
@@ -23,7 +23,6 @@ class SearchBar extends Component {
             <div>
                 <AddForm addPost = {this.props.addPost} />
             </div>
-
         )
     }
 }

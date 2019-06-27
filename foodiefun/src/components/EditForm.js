@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
-import {updatePost} from '../actions/';
+import {updatePost, getPost} from '../actions/';
 import { Link } from 'react-router-dom';
 
 class EditForm extends Component {
@@ -22,16 +22,21 @@ class EditForm extends Component {
         this.setState({newCard:{...this.state.newCard, [e.target.name]: e.target.value}});
     };
 
-    updateCard = e => {        
+    updateCard = e => {      
+        console.log("I am in updateCard")  
         e.preventDefault();          
         this.props.updatePost(this.state.newCard);
+        this.props.history.push('/home');
     }
 
     componentDidMount() {
+        console.log("I am in CDM")
         this.setState ({
             newCard: this.props.editedObject
         })
         console.log(this.props.editedObject)
+        this.props.getPost();
+        console.log("I am after the getpost")
     }
 
 
@@ -94,7 +99,7 @@ class EditForm extends Component {
                         onChange={this.handleChanges}
                         placeholder='Description'
                     />         
-                    <button type='submit'><Link to='/home'>Update Review</Link></button>
+                    <button type='submit'>Update Review</button>
                 </form>
             </div>
         )
@@ -106,4 +111,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, {updatePost})(EditForm);
+export default connect(mapStateToProps, {updatePost, getPost})(EditForm);

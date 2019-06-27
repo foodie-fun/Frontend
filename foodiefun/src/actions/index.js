@@ -114,7 +114,7 @@ export const addPost = post => dispatch => {
     dispatch({
         type: ADD_POST_START
     });
-    axiosWithAuth()
+    return axiosWithAuth()
         .post(`https://foodiefun-be.herokuapp.com/api/auth/review`, post)
         .then(res => {
             console.log(res);
@@ -131,15 +131,16 @@ export const addPost = post => dispatch => {
         })
 }
 
-
+export const GET_START = 'GET_START';
 export const GET_SUCCESS = 'GET_SUCCESS';
-export const getPost = post => dispatch => {
+export const GET_FAILURE = 'GET_FAILURE';
+export const getPost = id => dispatch => {
     // console.log(post)
     dispatch({
-        type: ADD_POST_START
+        type: GET_START
     });
     axiosWithAuth()
-        .get(`https://foodiefun-be.herokuapp.com/api/auth/review`)
+        .get(`https://foodiefun-be.herokuapp.com/api/auth/review/user/${id}`)
         .then(res => {
             console.log(res)
             dispatch({
@@ -149,7 +150,7 @@ export const getPost = post => dispatch => {
         })
         .catch(err => {
             dispatch({
-                type: ADD_POST_FAILURE,
+                type: GET_FAILURE,
                 payload: err
             })
         })
@@ -170,7 +171,7 @@ export const deletePost = id => dispatch => {
     dispatch({
         type: DELETE_START
     });
-    axiosWithAuth()
+    return axiosWithAuth()
         .delete(`https://foodiefun-be.herokuapp.com/api/auth/review/${id}`)
         .then(res => {
             console.log(res)
@@ -196,7 +197,7 @@ export const updatePost = item => dispatch => {
     dispatch({
         type: UPDATE_START
     });
-    axiosWithAuth()
+    return axiosWithAuth()
         .put(`https://foodiefun-be.herokuapp.com/api/auth/review/${item.id}`, item)
         .then(res => {
             console.log(res)

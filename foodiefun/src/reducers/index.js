@@ -12,7 +12,7 @@
 // import { FETCHING, SUCCESS, FAILURE, LOGIN_SUCCESS,  LOGIN_START } from "../actions";
 import { ADD_POST_SUCCESS, ADD_POST_FAILURE, GET_SUCCESS} from "../actions";
 import { SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILURE, LOGIN_SUCCESS,  LOGIN_START } from "../actions";
-import {DELETE_SUCCESS, DELETE_FAIL, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAIL, PUT_ON_STATE} from '../actions'
+import {DELETE_SUCCESS, DELETE_FAIL, UPDATE_START, UPDATE_SUCCESS, UPDATE_FAIL, PUT_ON_STATE, GET_FAILURE, GET_START} from '../actions'
 
 
 const initialState = {
@@ -38,11 +38,20 @@ const reducer = (state = initialState, action) => {
             ...state,
             error: true
         }; 
-        case GET_SUCCESS:
+        case GET_START:
             return {
-                ...state,
-                reviews: action.payload
-            } 
+                ...state
+            }
+        case GET_SUCCESS:
+        return {
+            ...state,
+            reviews: action.payload
+        } 
+        case GET_FAILURE:
+        return {
+            ...state,
+            error: true,
+        }  
             case SIGNUP_START:
         return {
             ...state,
@@ -109,7 +118,3 @@ const reducer = (state = initialState, action) => {
 }
 
 export default reducer;
-
-
-// action creator takes Object, makes put request at URL, takes id off that Object
-// update put takes the id from that object and 

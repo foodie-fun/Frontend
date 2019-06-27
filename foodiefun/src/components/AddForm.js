@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {getPost, addPost } from '../actions'
-import {connect } from 'react-redux'
+import {getPost, addPost, updatePost } from '../actions'
+import {connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class AddForm extends Component {
     state = {
@@ -18,6 +19,7 @@ class AddForm extends Component {
     componentDidMount() {
         this.props.getPost();
     }
+    
     handleChanges = e => {
         this.setState({newCard:{...this.state.newCard, [e.target.name]: e.target.value}});
     };
@@ -27,8 +29,18 @@ class AddForm extends Component {
         console.log(this.state.newCard)
         const post = {user_id: localStorage.getItem('current'), ...this.state.newCard}
         this.props.addPost(post);
-        this.props.getPost();
+        this.props.getPost(localStorage.getItem('current'));
+        this.props.history.push('/home');
     }
+
+    checkUpdate = e => {
+        let anything = {
+            id:5 
+        }
+
+        this.props.updatePost(anything);
+    }
+
     render() {
         return (
             <div>
@@ -89,11 +101,13 @@ class AddForm extends Component {
                         placeholder='Description'
                     />         
                     <button type='submit'>Add Post</button>
+                    <button onClick={this.checkUpdate}>Check Update</button>
                 </form>
+                <Link to='/home'>Go Home</Link>
             </div>
         )
     }
 }
 
 
-export default connect(null, {getPost, addPost})(AddForm)
+export default connect(null, {getPost, addPost, updatePost})(AddForm)

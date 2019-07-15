@@ -22,8 +22,7 @@ function Catalog(props){
                             </Container>
                     )
                 })
-            }
-            
+            }            
         </div>
     )
 }
